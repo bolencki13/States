@@ -7,16 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "StatesViewController.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic) StatesViewController *viewController;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.viewController = [[StatesViewController alloc] init];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = navigation;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
